@@ -1,0 +1,25 @@
+<! DOCTYPE html>
+<html>
+ <body>
+<p>Click the button to trigger a function.</p>
+  
+
+
+<script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "what's the capital of China?; Who is the president of USA?; What's the name of your university?";
+  document.getElementById("b2").innerHTML = "To see the answer, you need to click the answer";
+}
+function button(){
+  document.getElementById("b3").innerHTML="Beijing; Biden; CMU ";
+  }
+</script>
+
+<button id="b2"onclick="myFunction()">Click me</button>
+<button id="b3"onclick="button()">The answer</button>
+
+<p id="demo"></p>
+
+
+  </body>
+</html>
