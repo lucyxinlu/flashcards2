@@ -2,9 +2,13 @@
 <html>
  <body>
 <p>Click the button to see the answer.</p>
-
+ <button onclick="buttonClicked(event)" onmouseover="check()">The answer</button>  
+	 <button id='question' onclick="button()">The question</button>
+	<!--Create the button and event listener-->
+	 <p id="alert"></p>
+	<p id="demo"></p>
   
-
+<script src="scripts/index.js"></script>
 <script>
 class question{
 constructor(question,answer){
@@ -12,29 +16,38 @@ this.question=question;
 this.answer=answer;}
 }
 let myFlashcards=[];
-myFlashcards.push(new question('What is the capital of China?','Beijing'));
-myFlashcards.push(new question('Who is the president of USA?','Biden'));
-myFlashcards.push(new question('What is the name of your university?','CMU'));
- <!-- Create the question array-->
- function buttonClicked(show){
-    for (var i=0;i<myFlashcards.length;i++){
+myFlashcards.push(new question('What is the capital of China?'));
+myFlashcards.push(new question('Who is the president of USA?'));
+myFlashcards.push(new question('What is the name of your university?'));
+	
+ /*Create the question array*/
+
+	let i=0;
+ function button(){
+	if(i<myFlashcards.length){
+document.getElementById("question").innerHTML=myFlashcards[i].question;	
+		 i++;
+	 } else if(i==myFlashcards.length){
+		 i=0;
 document.getElementById("question").innerHTML=myFlashcards[i].question;
-} 
- }<!--Use the while loop to show question on the page one at a time-->
+		 i++;
+	 }
+	 
+ }/*Get the question displayed one at a time*/
+	 
 let answer=new Array();
 answer.push("Beijing","Biden","CMU");
-<!--Create the answer array-->
+//Create the answer array//
+	
 function buttonClicked(event){
  document.getElementById("demo").innerHTML=answer;}
-<!--Define the onlick event-->
+//Define the onlick event//
+	
 function check(){
 	document.getElementById("alert").innerHTML='Click the question first';
- }
+ }//have the mouseover event and print a message to users//
 </script>
-  <button onclick="buttonClicked(event)" onmouseover="check()">The answer</button>  
-	<button id="question" onclick="buttonClicked(show)">The question</button>
-	 <p id="alert"></p>
-	<p id="demo"></p>
+ 
 	 
   </body>
 </html>
