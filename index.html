@@ -1,28 +1,40 @@
 <! DOCTYPE html>
 <html>
  <body>
-<p>Click the button to trigger a function.</p>
-  <p>Click the question first.</p>
+<p>Click the button to see the answer.</p>
+
   
 
-
 <script>
- <!--create a button with callback>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "what's the capital of China?; Who is the president of USA?; What's the name of your university?";
-  document.getElementById("b2").innerHTML = "To see the answer, you need to click the answer";
+class question{
+constructor(question,answer){
+this.question=question;
+this.answer=answer;}
 }
- <!--create another button to distinguish the"answer" and "question">
-function button(){
-  document.getElementById("b3").innerHTML="Beijing; Biden; CMU ";
-  }
+let myFlashcards=[];
+myFlashcards.push(new question('What is the capital of China?','Beijing'));
+myFlashcards.push(new question('Who is the president of USA?','Biden'));
+myFlashcards.push(new question('What is the name of your university?','CMU'));
+ <!-- Create the question array-->
+ function buttonClicked(show){
+    for (var i=0;i<myFlashcards.length;i++){
+document.getElementById("question").innerHTML=myFlashcards[i].question;
+} 
+ }<!--Use the while loop to show question on the page one at a time-->
+let answer=new Array();
+answer.push("Beijing","Biden","CMU");
+<!--Create the answer array-->
+function buttonClicked(event){
+ document.getElementById("demo").innerHTML=answer;}
+<!--Define the onlick event-->
+function check(){
+	document.getElementById("alert").innerHTML='Click the question first';
+ }
 </script>
-
-<button id="b2"onclick="myFunction()">The question</button>
-<button id="b3"onclick="button()">The answer</button>
-
-<p id="demo"></p>
-
-
+  <button onclick="buttonClicked(event)" onmouseover="check()">The answer</button>  
+	<button id="question" onclick="buttonClicked(show)">The question</button>
+	 <p id="alert"></p>
+	<p id="demo"></p>
+	 
   </body>
 </html>
